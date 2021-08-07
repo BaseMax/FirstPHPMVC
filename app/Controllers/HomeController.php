@@ -9,11 +9,11 @@ class HomeController
 {
     public function index()
     {
-        // TODO: Implement
+        View::render('index', ['message' => 'Quera']);
     }
     
     public function testView()
     {
-        // TODO: Implement
+        View::render('index', ['message' => 'Hello, World!']);
     }
 }
