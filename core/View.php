@@ -20,7 +20,7 @@ class View
             // }
 
             $regex = '/\{\{(\s*)(?<value>[a-zA-Z\-_][[a-zA-Z\-_0-9]+)(\s*)\}\}/i';
-            preg_replace_callback($regex, function($item) {
+            $code = preg_replace_callback($regex, function($item) use ($parameters) {
                 $key = $item["value"];
                 if(isset($parameters[$key]))
                 {
