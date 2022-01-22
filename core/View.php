@@ -4,13 +4,15 @@ namespace Core;
 
 class View
 {
-    public static function render(string $view, array $parameters = []): string
+    public static function render(string $view, array $parameters = []): void
     {
-        $file = "Views/$view.html";
+        $file = __DIR__ . "/../app/Views/$view.html";
         $code = "";
+        // print "$file\n";
         if(file_exists($file) && is_file($file))
         {
             $code = file_get_contents($file);
+            // print "$code\n";
 
             // foreach($parameters as $key=>$value)
             // {
@@ -18,15 +20,15 @@ class View
             // }
 
             $regex = '/\{\{(\s*)(?<value>[a-zA-Z\-_][[a-zA-Z\-_0-9]+)(\s*)\}\}/i';
-            preg_replace_callback($regex, $code, function($item) {
+            preg_replace_callback($regex, function($item) {
                 $key = $item["value"];
                 if(isset($parameters[$key]))
                 {
                     return $parameters[$key];
                 }
                 return ''; // Default value
-            });
+            }, $code);
         }
-        return $code;
+        print $code;
     }
 }
