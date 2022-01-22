@@ -6,6 +6,7 @@ Very good and small template to show how can set up a own **PHP**-base with MVC-
 
 ```bash
 $ composer install
+$ composer suggest
 ```
 
 ## Using
