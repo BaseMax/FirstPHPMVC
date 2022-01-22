@@ -1,4 +1,6 @@
-# FirstViewMVC
+# First PHP MVC
+
+Very good and small template to show how can set up a own **PHP**-base with MVC-like architecture. (Router, Controller, View)
 
 ## Using
 
